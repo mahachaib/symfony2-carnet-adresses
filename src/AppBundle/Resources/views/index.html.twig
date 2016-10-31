@@ -1,0 +1,38 @@
+{% if app.user %}
+   <div style="float:right;">
+	  <h3><a href="/logout">Logout</a></h3>
+   </div>
+   
+   <br> 
+   <br> 
+   
+    {% for user in users %}
+        <li>{{ user.username|e }}</li>
+    {% endfor %}
+   
+{% else %}
+   <table>
+    <tbody>
+      <tr>
+        <td>
+          <h2>Coonexion</h2>
+
+          <hr>
+
+          {% render url('fos_user_security_login') %}
+        </td>
+
+        <td>
+          <h2>Inscription</h2>
+
+          <hr>
+
+          {% render url('fos_user_registration_register') %}
+        </td>
+
+      </tr>
+    </tbody>
+   </table>
+
+
+{% endif %}
